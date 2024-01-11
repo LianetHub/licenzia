@@ -2148,6 +2148,9 @@ body {
   line-height: 145%;
   letter-spacing: 0.16px;
   text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0;
   -webkit-transition: color 0.3s ease 0s;
   -o-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
@@ -2173,6 +2176,10 @@ body {
   -o-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
   text-decoration: none;
+  background: none;
+  padding: 0;
+  border: 0;
+  text-align: left;
 }
 
 .bid__search-result:not(:first-child) {
@@ -2213,8 +2220,17 @@ body {
   font-size: 14px;
 }
 
+.bid__result:not(.active) {
+  display: none;
+}
+
 .bid__form {
   margin: 1.875em 0em 0em 0em;
+  display: none;
+}
+
+.bid__form.active {
+  display: block;
 }
 
 .bid__form + .bid__actions {
@@ -2260,6 +2276,10 @@ body {
 
 .bid__form-block .form-item {
   margin-bottom: 0;
+}
+
+.bid__form-block.bid-company-info:not(.visible) {
+  display: none;
 }
 
 .bid__form-toggler {

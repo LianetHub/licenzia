@@ -48,6 +48,30 @@ $(function () {
             $target.closest('.bid__drafts-btn').toggleClass('open').next().slideToggle()
         }
 
+        // bid hand write
+        if ($target[0].hasAttribute('data-hand')) {
+            $('.bid__form').addClass('active');
+            $('.bid-company-info').addClass('visible');
+            $('.bid__search-input').val($target.text())
+        }
+        // bid company no reg
+        if ($target[0].hasAttribute('data-no-reg')) {
+            $('.bid__form').addClass('active');
+            $('.bid-company-info').removeClass('visible');
+            $('.bid__search-input').val($target.text())
+        }
+
+        // bid company 
+        if ($target[0].closest('[data-id-company]')) {
+
+            let $companyValue = $target.closest('[data-id-company]').data("id-company");
+
+            $('.bid__form').addClass('active');
+            $('.bid__result').addClass('active');
+            $('.bid-company-info').removeClass('visible');
+            $('.bid__search-input').val($companyValue);
+        }
+
         // delete table row
         if ($target[0].closest('.bid__drafts-delete')) {
             let $draftsWrapper = $target.closest('.bid__drafts-content');
@@ -99,6 +123,8 @@ $(function () {
                 item.checked = false;
             })
         }
+
+
 
 
     });
