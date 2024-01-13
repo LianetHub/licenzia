@@ -50,10 +50,6 @@
   font-style: normal;
 }
 
-body {
-  font-family: "Golos", sans-serif;
-}
-
 .btn-black,
 .choise-btn {
   border-radius: 12px;
@@ -1164,6 +1160,10 @@ body {
           transform: rotate(-225deg);
 }
 
+.cabinet {
+  font-family: "Golos", sans-serif;
+}
+
 .cabinet * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1853,11 +1853,31 @@ body {
 }
 
 .bid__drafts-item {
+  position: relative;
   color: rgba(33, 33, 33, 0.7);
 }
 
 .bid__drafts-item:not(:last-child) {
   margin-bottom: 1.25rem;
+}
+
+.bid__drafts-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: calc(100% + 2.5rem);
+  height: calc(100% + 1.25rem);
+  background: var(--background-e9);
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s ease 0s;
+  -o-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
 }
 
 .bid__drafts-header {
@@ -2643,10 +2663,22 @@ body {
 }
 
 .partner__btn {
-  display: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: fixed;
+  bottom: 2.5rem;
+  left: 0.625rem;
+  width: calc(100% - 1.25rem);
+  z-index: 3;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .partner__body {
+  position: relative;
+  z-index: 1;
   margin: 40px 0 0 0;
 }
 
@@ -3243,10 +3275,14 @@ body {
   }
 
   .partner__btn {
+    position: static;
+    bottom: auto;
+    left: auto;
+    width: auto;
     margin-left: auto;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .partner__acts {
@@ -3637,6 +3673,10 @@ body {
 
   .bid__drafts-btn:hover {
     color: var(--red-color);
+  }
+
+  .bid__drafts-item:hover::after {
+    opacity: 1;
   }
 
   .bid__drafts-delete:hover {
